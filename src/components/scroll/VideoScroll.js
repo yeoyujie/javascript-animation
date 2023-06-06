@@ -1,11 +1,13 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './VideoScroll.css';
+import MiniMap from '../minimap/minimap';
 
-function VideoScroll({ videoSrc }) {
+function VideoScroll({ videoSrc, srcMap }) {
   const IntroVideoRef = useRef(null);
   const videoRef = useRef(null);
+  const [videoCurrentTime, setVideoCurrentTime] = useState(0);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -30,6 +32,7 @@ function VideoScroll({ videoSrc }) {
 
             if (videoCurrentTime) {
               videoRef.current.currentTime = videoCurrentTime;
+              setVideoCurrentTime(videoCurrentTime);
             }
           }
         },
@@ -48,6 +51,7 @@ function VideoScroll({ videoSrc }) {
     <>
       <div ref={IntroVideoRef} className="intro">
         <video id="video" ref={videoRef} src={videoSrc} ></video>
+        <MiniMap videoCurrentTime={videoCurrentTime} srcMap={srcMap} />
       </div>
     </>
   );
