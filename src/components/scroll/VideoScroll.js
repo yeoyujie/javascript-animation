@@ -3,11 +3,59 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './VideoScroll.css';
 import MiniMap from '../minimap/minimap';
+import MessageBox from '../messagebox/messagebox';
 
 function VideoScroll({ videoSrc, srcMap }) {
   const IntroVideoRef = useRef(null);
   const videoRef = useRef(null);
   const [videoCurrentTime, setVideoCurrentTime] = useState(0);
+
+
+  const [messageBox1Top, setMessageBox1Top] = useState('50%');
+  const [messageBox1Opacity, setMessageBox1Opacity] = useState(0);
+  const [messageBox2Top, setMessageBox2Top] = useState('50%');
+  const [messageBox2Opacity, setMessageBox2Opacity] = useState(0);
+
+
+  function calculateMessageBoxPosition(
+    startTime,
+    endTime,
+    pinDuration,
+    pinPosition,
+    videoCurrentTime
+  ) {
+    let top = '100%';
+    let opacity = 0;
+    const fadeInDuration = (endTime - startTime - pinDuration) / 2;
+    const fadeOutDuration = fadeInDuration;
+    if (videoCurrentTime >= startTime && videoCurrentTime <= endTime) {
+      if (videoCurrentTime <= startTime + fadeInDuration) {
+        top = `${100 -
+          (100 - pinPosition) *
+          ((videoCurrentTime - startTime) / fadeInDuration)}%`;
+        opacity = Math.max(
+          0,
+          Math.min(1, (videoCurrentTime - startTime) / fadeInDuration)
+        );
+      } else if (videoCurrentTime <= startTime + fadeInDuration + pinDuration) {
+        top = `${pinPosition}%`;
+        opacity = 1;
+      } else {
+        top = `${pinPosition -
+          pinPosition *
+          ((videoCurrentTime - startTime - fadeInDuration - pinDuration) /
+            fadeOutDuration)}%`;
+        opacity = Math.max(
+          0,
+          Math.min(
+            1,
+            (endTime - videoCurrentTime) / fadeOutDuration
+          )
+        );
+      }
+    }
+    return { top, opacity };
+  }
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -33,9 +81,22 @@ function VideoScroll({ videoSrc, srcMap }) {
             if (videoCurrentTime) {
               videoRef.current.currentTime = videoCurrentTime;
               setVideoCurrentTime(videoCurrentTime);
+
+              const { top: messageBox1Top, opacity: messageBox1Opacity } =
+                calculateMessageBoxPosition(1, 4, 2, 30, videoCurrentTime);
+              setMessageBox1Top(messageBox1Top);
+              setMessageBox1Opacity(messageBox1Opacity);
+
+              // Calculate new top and opacity values for message box 2
+              const { top: messageBox2Top, opacity: messageBox2Opacity } =
+                calculateMessageBoxPosition(3, 5, 1, 20, videoCurrentTime);
+              setMessageBox2Top(messageBox2Top);
+              setMessageBox2Opacity(messageBox2Opacity);
+
             }
           }
         },
+
       });
     };
 
@@ -50,8 +111,20 @@ function VideoScroll({ videoSrc, srcMap }) {
   return (
     <>
       <div ref={IntroVideoRef} className="intro">
-        <video id="video" ref={videoRef} src={videoSrc} ></video>
+        <video id="video" ref={videoRef} src={videoSrc}></video>
         <MiniMap videoCurrentTime={videoCurrentTime} srcMap={srcMap} />
+        <MessageBox
+          message="Message Box 1"
+          show={videoCurrentTime >= 1 && videoCurrentTime <= 2}
+          top={messageBox1Top}
+          opacity={messageBox1Opacity}
+        />
+        <MessageBox
+          message="Message Box 2"
+          show={videoCurrentTime >= 3 && videoCurrentTime <= 5}
+          top={messageBox2Top}
+          opacity={messageBox2Opacity}
+        />
       </div>
     </>
   );
