@@ -18,6 +18,7 @@ function VideoScroll({ videoSrc, srcMap }) {
 
 
   function calculateMessageBoxPosition(
+    index,
     startTime,
     endTime,
     pinDuration,
@@ -38,24 +39,24 @@ function VideoScroll({ videoSrc, srcMap }) {
           Math.min(1, (videoCurrentTime - startTime) / fadeInDuration)
         );
       } else if (videoCurrentTime <= startTime + fadeInDuration + pinDuration) {
-        top = `${pinPosition}%`;
+        top = `${pinPosition + index * 20}%`;
         opacity = 1;
       } else {
-        top = `${pinPosition -
-          pinPosition *
+        top = `${pinPosition +
+          index * 20 -
+          (pinPosition + index * 20) *
           ((videoCurrentTime - startTime - fadeInDuration - pinDuration) /
             fadeOutDuration)}%`;
         opacity = Math.max(
           0,
-          Math.min(
-            1,
-            (endTime - videoCurrentTime) / fadeOutDuration
-          )
+          Math.min(1, (endTime - videoCurrentTime) / fadeOutDuration)
         );
       }
     }
     return { top, opacity };
   }
+
+
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -82,21 +83,21 @@ function VideoScroll({ videoSrc, srcMap }) {
               videoRef.current.currentTime = videoCurrentTime;
               setVideoCurrentTime(videoCurrentTime);
 
+              // Calculate new top and opacity values for message box 1
               const { top: messageBox1Top, opacity: messageBox1Opacity } =
-                calculateMessageBoxPosition(1, 4, 2, 30, videoCurrentTime);
+                calculateMessageBoxPosition(0, 1, 2, 0.5, 40, videoCurrentTime);
               setMessageBox1Top(messageBox1Top);
               setMessageBox1Opacity(messageBox1Opacity);
 
               // Calculate new top and opacity values for message box 2
               const { top: messageBox2Top, opacity: messageBox2Opacity } =
-                calculateMessageBoxPosition(3, 5, 1, 20, videoCurrentTime);
+                calculateMessageBoxPosition(1, 2, 5, 1, 60, videoCurrentTime);
               setMessageBox2Top(messageBox2Top);
               setMessageBox2Opacity(messageBox2Opacity);
 
             }
           }
         },
-
       });
     };
 
