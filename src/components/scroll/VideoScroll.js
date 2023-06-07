@@ -10,12 +10,10 @@ function VideoScroll({ videoSrc, srcMap }) {
   const videoRef = useRef(null);
   const [videoCurrentTime, setVideoCurrentTime] = useState(0);
 
-
   const [messageBox1Top, setMessageBox1Top] = useState('50%');
   const [messageBox1Opacity, setMessageBox1Opacity] = useState(0);
   const [messageBox2Top, setMessageBox2Top] = useState('50%');
   const [messageBox2Opacity, setMessageBox2Opacity] = useState(0);
-
 
   function calculateMessageBoxPosition(
     index,
@@ -55,8 +53,6 @@ function VideoScroll({ videoSrc, srcMap }) {
     }
     return { top, opacity };
   }
-
-
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
