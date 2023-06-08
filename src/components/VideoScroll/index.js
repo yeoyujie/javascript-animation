@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './VideoScroll.css';
-import MiniMap from '../minimap/minimap';
-import MessageBox from '../messagebox/messagebox';
+import MiniMap from '../MiniMap';
+import MessageBox from '../MessageBox';
 
 function VideoScroll({ videoSrc, srcMap }) {
   const IntroVideoRef = useRef(null);

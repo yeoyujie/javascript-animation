@@ -1,14 +1,14 @@
 import './App.css';
 import Lottie from 'lottie-react';
-import VideoScroll from './components/scroll/VideoScroll';
-import ProgressBar from './components/progressbar/progressbar';
+import VideoScroll from './components/VideoScroll';
+import ProgressBar from './components/ProgressBar';
 import aerialview from './assets/aerialview.jpg';
 import masthead from './assets/masthead.jpg';
 import animatedVideo from './assets/video.mp4'
 import mapImage from './assets/cleantech3.jpg';
 import miniMap from './assets/sg.svg';
 import Success from './assets/success.json';
-import LottieWrapper from './components/lottiewrapper/LottieWrapper';
+import LottieWrapper from './components/LottieWrapper';
 
 function App() {
   return (
