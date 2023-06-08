@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import Lottie from 'lottie-react';
 
-function LottieWrapper({ animationData, message }) {
+function LottieWrapper({ animationData, message, scrollToTopButton }) {
     const lottieRef = useRef(null);
     const containerRef = useRef(null);
 
@@ -30,6 +30,7 @@ function LottieWrapper({ animationData, message }) {
         <div ref={containerRef} className="lottie-container">
             <Lottie ref={lottieRef} animationData={animationData} />
             <p>{message}</p>
+            {scrollToTopButton} 
         </div>
     );
 }

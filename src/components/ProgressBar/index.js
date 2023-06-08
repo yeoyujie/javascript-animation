@@ -23,8 +23,8 @@ function ProgressBar() {
         top: 0,
         left: 0,
         width: `${scrollProgress * 100}%`,
-        height: '4px',
-        backgroundColor: '#029be3',
+        height: scrollProgress >= 1 ? '1vh' : '0.5vh',
+        backgroundColor: scrollProgress >= 1 ? '#00ff00' : '#029be3',
         zIndex: 9999,
       }}
     />
