@@ -16,7 +16,6 @@ function VideoScroll({ videoSrc, srcMap }) {
   const [messageBox2Opacity, setMessageBox2Opacity] = useState(0);
 
   function calculateMessageBoxPosition(
-    index,
     startTime,
     endTime,
     pinDuration,
@@ -37,12 +36,11 @@ function VideoScroll({ videoSrc, srcMap }) {
           Math.min(1, (videoCurrentTime - startTime) / fadeInDuration)
         );
       } else if (videoCurrentTime <= startTime + fadeInDuration + pinDuration) {
-        top = `${pinPosition + index * 20}%`;
+        top = `${pinPosition}%`;
         opacity = 1;
       } else {
-        top = `${pinPosition +
-          index * 20 -
-          (pinPosition + index * 20) *
+        top = `${pinPosition -
+          pinPosition *
           ((videoCurrentTime - startTime - fadeInDuration - pinDuration) /
             fadeOutDuration)}%`;
         opacity = Math.max(
@@ -53,6 +51,7 @@ function VideoScroll({ videoSrc, srcMap }) {
     }
     return { top, opacity };
   }
+  
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -81,13 +80,13 @@ function VideoScroll({ videoSrc, srcMap }) {
 
               // Calculate new top and opacity values for message box 1
               const { top: messageBox1Top, opacity: messageBox1Opacity } =
-                calculateMessageBoxPosition(0, 1, 2, 0.5, 40, videoCurrentTime);
+                calculateMessageBoxPosition(1, 4, 1, 40, videoCurrentTime);
               setMessageBox1Top(messageBox1Top);
               setMessageBox1Opacity(messageBox1Opacity);
 
               // Calculate new top and opacity values for message box 2
               const { top: messageBox2Top, opacity: messageBox2Opacity } =
-                calculateMessageBoxPosition(1, 2, 5, 1, 60, videoCurrentTime);
+                calculateMessageBoxPosition(1, 5, 2, 60, videoCurrentTime);
               setMessageBox2Top(messageBox2Top);
               setMessageBox2Opacity(messageBox2Opacity);
 
@@ -112,13 +111,11 @@ function VideoScroll({ videoSrc, srcMap }) {
         <MiniMap videoCurrentTime={videoCurrentTime} srcMap={srcMap} />
         <MessageBox
           message="Message Box 1"
-          show={videoCurrentTime >= 1 && videoCurrentTime <= 2}
           top={messageBox1Top}
           opacity={messageBox1Opacity}
         />
         <MessageBox
           message="Message Box 2"
-          show={videoCurrentTime >= 3 && videoCurrentTime <= 5}
           top={messageBox2Top}
           opacity={messageBox2Opacity}
         />

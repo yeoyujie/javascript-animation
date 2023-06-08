@@ -1,12 +1,8 @@
-function MessageBox({ message, show, top, opacity }) {
+function MessageBox({ message, top, opacity }) {
   return (
-    <>
-      {show && (
-        <div className="message-box" style={{ top, opacity }}>
-          <p>{message}</p>
-        </div>
-      )}
-    </>
+    <div className="message-box" style={{ top, opacity }}>
+      <p>{message}</p>
+    </div>
   );
 }
 

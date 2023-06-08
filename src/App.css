@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,100&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -45,4 +51,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.lottie-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  padding-top: 300px;
+  padding-bottom: 200px;
+
+}
+
+.lottie-container > div {
+  width: 30%;
+  height: 30%;
+}
+
+.lottie-container p {
+  color: white;
+  font-size: 3rem;
 }
