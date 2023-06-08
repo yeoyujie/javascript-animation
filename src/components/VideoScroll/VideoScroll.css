@@ -1,66 +1,72 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: sans-serif;
-  }
-  
-  .intro {
-    height: 100vh;
-  }
-  
-  .intro video {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-  
-  .intro h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 80px;
-    color: white;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .mini-map {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 20%;
-    height: 30%;
-    z-index: 1;
-    opacity: 80%;
-  }
+body {
+  font-family: sans-serif;
+}
 
-  .mini-map img {
-    width: 100%;
-    height: 100%;
-  }  
-  
+.intro {
+  height: 100vh;
+}
 
-  .message-box {
-    position: absolute;
-    top: 50%;
-    left: 4%;
-    transform: translateY(-50%);
-    background-color: black;
-    color: white;
-    padding: 15px;
-  }
-  
-  
-  section {
-    height: 100vh;
-    color: black;
-  }
-  
-  section h1 {
-    padding-top: 300px;
-    text-align: center;
-    font-size: 80px;
-  }
+.intro video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.intro h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  color: white;
+}
+
+.mini-map {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20%;
+  height: 30%;
+  z-index: 1;
+  opacity: 80%;
+}
+
+.mini-map img {
+  width: 100%;
+  height: 100%;
+}
+
+.location-marker {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.message-box {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%);
+  background-color: black;
+  color: white;
+  padding: 15px;
+}
+
+section {
+  height: 100vh;
+  color: black;
+}
+
+section h1 {
+  padding-top: 300px;
+  text-align: center;
+  font-size: 80px;
+}
