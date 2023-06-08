@@ -1,9 +1,7 @@
 import './App.css';
-import Lottie from 'lottie-react';
 import VideoScroll from './components/VideoScroll';
 import ProgressBar from './components/ProgressBar';
 import aerialview from './assets/aerialview.jpg';
-import masthead from './assets/masthead.jpg';
 import animatedVideo from './assets/video.mp4'
 import mapImage from './assets/cleantech3.jpg';
 import miniMap from './assets/sg.svg';

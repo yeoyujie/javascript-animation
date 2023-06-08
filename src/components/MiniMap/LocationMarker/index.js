@@ -16,7 +16,7 @@ function LocationMarker({ videoCurrentTime }) {
         // Calculate the x and y coordinates based on the current angle
         const x = radius * Math.cos(angle) + radius + 80;
         const y = radius * Math.sin(angle) + radius + 50;
-    
+     
         return { x, y };
     }
 

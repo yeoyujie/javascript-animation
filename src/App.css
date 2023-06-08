@@ -43,6 +43,7 @@ body {
   }
 }
 
+/* ------------------------- Background Image -------------------------------------*/
 .background-image {
   background-size: cover;
   background-position: center;
@@ -54,6 +55,7 @@ body {
 }
 
 
+/* ------------------------- Lottie Container -------------------------------------*/
 .lottie-container {
   display: flex;
   flex-direction: column;
