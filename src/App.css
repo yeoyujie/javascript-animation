@@ -1,24 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,100&display=swap');
+/* ------------------------- Global Styles -------------------------------------*/
 
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set font for the body */
 body {
   font-family: 'Montserrat', sans-serif;
 }
 
+/* Center align the content in the App container */
 .App {
   text-align: center;
 }
 
+/* Logo styles */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+/* Animate logo spinning */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
+/* Header styles */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -30,10 +42,12 @@ body {
   color: white;
 }
 
+/* Link styles */
 .App-link {
   color: #61dafb;
 }
 
+/* Animation for logo spinning */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -44,6 +58,8 @@ body {
 }
 
 /* ------------------------- Background Image -------------------------------------*/
+
+/* Container for background image */
 .background-image {
   background-size: cover;
   background-position: center;
@@ -54,8 +70,9 @@ body {
   align-items: center;
 }
 
-
 /* ------------------------- Lottie Container -------------------------------------*/
+
+/* Container for Lottie animation */
 .lottie-container {
   display: flex;
   flex-direction: column;
@@ -64,7 +81,6 @@ body {
   background-color: black;
   padding-top: 300px;
   padding-bottom: 200px;
-
 }
 
 .lottie-container > div {
@@ -75,4 +91,79 @@ body {
 .lottie-container p {
   color: white;
   font-size: 3rem;
+}
+
+/* ------------------------- Intro Section -------------------------------------*/
+
+/* Container for intro section */
+.intro {
+  height: 100vh;
+}
+
+.intro video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.intro h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  color: white;
+}
+
+/* ------------------------- Mini Map -------------------------------------*/
+
+/* Container for mini map */
+.mini-map {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20%;
+  height: 30%;
+  z-index: 1;
+  opacity: 80%;
+}
+
+.mini-map img {
+  width: 100%;
+  height: 100%;
+}
+
+.location-marker {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+/* ------------------------- Message Box -------------------------------------*/
+
+/* Container for message box */
+.message-box {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%);
+  background-color: black;
+  color: white;
+  padding: 15px;
+}
+
+/* ------------------------- Section -------------------------------------*/
+
+/* Generic section styles */
+section {
+  height: 100vh;
+  color: black;
+}
+
+section h1 {
+  padding-top: 300px;
+  text-align: center;
+  font-size: 80px;
 }

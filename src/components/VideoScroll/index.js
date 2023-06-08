@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import './VideoScroll.css';
 import MiniMap from '../MiniMap';
 import MessageBox from '../MessageBox';
 
