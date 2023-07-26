@@ -109,7 +109,7 @@ function VideoScroll({ videoSrc, srcMap }) {
         <video id="video" ref={videoRef} src={videoSrc}></video>
         <MiniMap videoCurrentTime={videoCurrentTime} srcMap={srcMap} />
         <MessageBox
-          message="Message Box 1"
+          message="Message Box 1000000000000"
           top={messageBox1Top}
           opacity={messageBox1Opacity}
         />
