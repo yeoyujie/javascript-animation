@@ -9,7 +9,7 @@ const LandingPage = ({ imageSrc }) => {
   };
 
   const textStyle = {
-    fontSize: '3rem',
+    fontSize: '6rem',
     color: 'white',
   };
 
