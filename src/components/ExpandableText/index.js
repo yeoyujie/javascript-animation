@@ -1,8 +1,8 @@
 const ExpandableText = ({ text, backgroundImage }) => {
     const containerStyle = {
       padding: '10vh 1rem',
-      backgroundColor: 'black',
       minHeight: '50vh',
+      backgroundColor: 'black',
       backgroundImage: backgroundImage ? `url(${backgroundImage})` : null,
       backgroundSize: 'cover',
     };

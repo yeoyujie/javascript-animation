@@ -1,3 +1,7 @@
+import { Element, animateScroll as scroll } from 'react-scroll';
+import useScrollSnap from "react-use-scroll-snap";
+import { useRef } from 'react';
+
 import VideoScroll from './components/VideoScroll';
 import ProgressBar from './components/ProgressBar';
 import aerialview from './assets/aerialview.jpg';
@@ -5,12 +9,13 @@ import animatedVideo from './assets/video.mp4'
 import miniMap from './assets/sg.svg';
 import Success from './assets/success.json';
 import LottieWrapper from './components/LottieWrapper';
-import { Element, animateScroll as scroll } from 'react-scroll';
 
 import LandingPage from './components/LandingPage';
 import ExpandableText from './components/ExpandableText';
 
+import BasePanolens from './components/BasePanolens';
 import PanolensViewer from './components/PanolensViewer';
+import PanolensWithOverlay from './components/PanolensWithOverlay';
 
 import pic from './assets/panorama/panel1.jpeg';
 import pic2 from './assets/panorama/pic3.jpg';
@@ -18,23 +23,44 @@ import pic2 from './assets/panorama/pic3.jpg';
 import landingImg from './assets/landing.jpg';
 import landingGif from './assets/landing.gif';
 
+import googleImg from './assets/google.png';
+
 import './App.css';
 
 function App() {
+  const scrollRef = useRef(null);
+  useScrollSnap({ ref: scrollRef, duration: 80, delay: 50 });
 
   return (
-    <div className="App">
+    <div className="App" ref={scrollRef}>
       <LandingPage imageSrc={landingGif} />
       <ExpandableText
-      text="This is some example text that will be displayed in the ExpandableText component."
-      backgroundImage="https://picsum.photos/1200/800"
-    />
-      <PanolensViewer imageSrc={pic} container=".image-container-1" />
-      <PanolensViewer imageSrc={pic2} container=".image-container-2" />
-      <div style={{ height: 800 }} />
-      <div style={{ height: 800, backgroundColor: 'black' }} />
-      <div style={{ height: 800 }} />
-      {/* <PanolensViewer imageSrc={pic2} container=".image-container-2" /> */}
+        text="This is some example text that will be displayed in the ExpandableText component."
+        backgroundImage="https://picsum.photos/1080/800"
+      />
+      {/* 
+      We're appending a unique `instance` query parameter to the `imageSrc` prop for each instance of the `BasePanolens` component. 
+      This will cause the browser to treat each image URL as a separate resource, even if they point to the same image file. 
+      This should allow both instances of the `BasePanolens` component to load and display the image correctly.
+      */}
+      <BasePanolens
+        imageSrc={`${pic}?instance=1`}
+        container=".image-container-1"
+      />
+      <BasePanolens
+        imageSrc={`${pic}?instance=2`}
+        overlaySrc={googleImg}
+        container=".image-container-2"
+      />
+      <BasePanolens
+        imageSrc={`${pic}?instance=3`}
+        overlaySrc={googleImg}
+        overlayText={'This is some overlay text'}
+        container=".image-container-3"
+      />
+
+      {/* <PanolensViewer imageSrc={pic} container=".image-container-1" />
+      <PanolensViewer imageSrc={pic2} container=".image-container-2" /> */}
       {/* <Element name="scrollContainer" className="scroll-container">
         <ProgressBar />
         <section className="intro-section" style={{ backgroundImage: `url(${aerialview})` }}>
