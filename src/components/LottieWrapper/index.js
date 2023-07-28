@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import Lottie from 'lottie-react';
 
-function LottieWrapper({ animationData, message, scrollToTopButton }) {
+function LottieWrapper({ animationData, message }) {
     const lottieRef = useRef(null);
     const containerRef = useRef(null);
 
@@ -20,7 +20,6 @@ function LottieWrapper({ animationData, message, scrollToTopButton }) {
             },
             { threshold: 0.5 }
         );
-
         observer.observe(containerRef.current);
 
         return () => observer.disconnect();
@@ -30,7 +29,9 @@ function LottieWrapper({ animationData, message, scrollToTopButton }) {
         <div ref={containerRef} className="lottie-container">
             <Lottie ref={lottieRef} animationData={animationData} />
             <p>{message}</p>
-            {scrollToTopButton} 
+            <button className="scroll-to-top-button"onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                Scroll to Top
+            </button>
         </div>
     );
 }

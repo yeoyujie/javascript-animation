@@ -29,7 +29,7 @@ const viewerOptions = {
 
 
 
-const CustomPanolens = ({ imageSrc, overlaySrc, overlayText, container, viewerOptions, textBoxOptions }) => {
+const CustomPanolens = ({ imageSrc, overlaySrc, overlayText, container, viewerOptions, textBoxOptions, animateTextBox = true }) => {
 
     const [inView, setInView] = useState(false);
     const ref = useRef(null);
@@ -43,8 +43,8 @@ const CustomPanolens = ({ imageSrc, overlaySrc, overlayText, container, viewerOp
         padding: '10px',
         width: '30%',
         textAlign: 'left',
-        animation: inView ? 'fadeIn 1s linear' : 'fadeOut 1s linear',
-        opacity: inView ? 1 : 0,
+        animation: animateTextBox ? (inView ? 'fadeIn 1s linear' : 'fadeOut 1s linear') : '',
+        opacity: animateTextBox ? (inView ? 1 : 0) : 1,
     };
 
     useEffect(() => {
