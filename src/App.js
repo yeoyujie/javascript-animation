@@ -1,5 +1,4 @@
 import { Element, animateScroll as scroll } from 'react-scroll';
-import useScrollSnap from "react-use-scroll-snap";
 import { useRef } from 'react';
 
 import VideoScroll from './components/VideoScroll';
@@ -28,11 +27,8 @@ import googleImg from './assets/google.png';
 import './App.css';
 
 function App() {
-  const scrollRef = useRef(null);
-  useScrollSnap({ ref: scrollRef, duration: 80, delay: 50 });
-
   return (
-    <div className="App" ref={scrollRef}>
+    <div className="App" >
       <LandingPage imageSrc={landingGif} />
       <ExpandableText
         text="This is some example text that will be displayed in the ExpandableText component."
@@ -55,13 +51,24 @@ function App() {
       <CustomPanolens
         imageSrc={`${pic}?instance=3`}
         overlaySrc={googleImg}
-        overlayText={'This is some overlay text'}
+        overlayText={'This is some overlay text This is some overlay textThis is some overlay textThis is some overlay textThis is some overlay text'}
         container=".image-container-3"
         viewerOptions={{
           autoRotate: true,
           cameraFov: 120,
           autoRotateSpeed: 1.5,
         }}
+        textBoxOptions={{
+          position: 'absolute',
+          bottom: 50,
+          right: 50,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        }}
+      />
+      <BasePanolens
+        imageSrc={`${pic}?instance=4`}
+        overlaySrc={googleImg}
+        container=".image-container-4"
       />
 
       {/* <PanolensViewer imageSrc={pic} container=".image-container-1" />
