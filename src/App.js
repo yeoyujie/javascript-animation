@@ -15,7 +15,7 @@ import ExpandableText from './components/ExpandableText';
 
 import BasePanolens from './components/BasePanolens';
 import PanolensViewer from './components/PanolensViewer';
-import PanolensWithOverlay from './components/PanolensWithOverlay';
+import CustomPanolens from './components/CustomPanolens';
 
 import pic from './assets/panorama/panel1.jpeg';
 import pic2 from './assets/panorama/pic3.jpg';
@@ -52,11 +52,16 @@ function App() {
         overlaySrc={googleImg}
         container=".image-container-2"
       />
-      <BasePanolens
+      <CustomPanolens
         imageSrc={`${pic}?instance=3`}
         overlaySrc={googleImg}
         overlayText={'This is some overlay text'}
         container=".image-container-3"
+        viewerOptions={{
+          autoRotate: true,
+          cameraFov: 120,
+          autoRotateSpeed: 1.5,
+        }}
       />
 
       {/* <PanolensViewer imageSrc={pic} container=".image-container-1" />
