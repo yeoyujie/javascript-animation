@@ -5,7 +5,8 @@ import TextSection from "./components/TextSection";
 import BasePanolens from "./components/BasePanolens";
 import PanolensViewer from "./components/PanolensViewer";
 import CustomPanolens from "./components/CustomPanolens";
-import FullWidthPhotoWithText from "./components/FullWidthPhotoWithText";
+import StaticPhotoWithText from "./components/StaticPhotoWithText";
+import VideoPlayer from "./components/VideoPlayer";
 import LottieWrapper from "./components/LottieWrapper";
 
 import animatedVideo from "./assets/video.mp4";
@@ -60,7 +61,8 @@ function App() {
           backgroundColor: "rgba(0, 0, 0, 0.5)",
         }}
       />
-      <FullWidthPhotoWithText
+      <VideoPlayer videoSrc={animatedVideo} />
+      <StaticPhotoWithText
         imageSrc={aerialview}
         overlayText={`This is some overlay text This is some overlay textT his is some overlay text.
         This is some overlay text. This is some overlay text. This is some overlay text This is some overlay textT his is some overlay text.

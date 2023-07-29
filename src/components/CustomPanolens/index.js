@@ -20,9 +20,9 @@ const defaultViewerOptions = {
   // autoRotateActivationDuration: The duration of mouse inactivity before auto rotation starts in milliseconds. Default is 5000.
   // orbitControls: Whether to use orbit controls instead of device orientation controls. Default is false.
   // Pass it to the component as a prop in src\App.js. Example:
-  // autoRotate: true,
-  // cameraFov: 120,
-  // autoRotateSpeed: 2.5,
+  autoRotate: true,
+  cameraFov: 120,
+  autoRotateSpeed: 2.5,
 };
 
 const CustomPanolens = ({

@@ -1,4 +1,4 @@
-const FullWidthPhotoWithText = ({ imageSrc, overlayText, textBoxOptions }) => {
+const StaticPhotoWithText = ({ imageSrc, overlayText, textBoxOptions }) => {
   const defaultStyle = {
     position: "absolute",
     top: "50%",
@@ -29,4 +29,4 @@ const FullWidthPhotoWithText = ({ imageSrc, overlayText, textBoxOptions }) => {
   );
 };
 
-export default FullWidthPhotoWithText;
+export default StaticPhotoWithText;

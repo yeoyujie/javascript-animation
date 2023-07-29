@@ -163,8 +163,7 @@ body {
   transform: translateY(-7px);
 }
 
-/* Panolens Viewer */
-
+/* --------------------------------- Panolens Components ------------------------------- */
 .viewer-container {
   background: #074357;
   height: 100vh;
@@ -185,6 +184,7 @@ canvas {
   width: 100%;
 }
 
+/* --------------------------------- Text Box animation ------------------------------- */
 @keyframes fadeIn {
   0% {
     opacity: 0;
