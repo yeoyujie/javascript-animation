@@ -1,17 +1,38 @@
-const StickyCaptionImage = ({ imageSrc, caption, textBoxOptions }) => {
+import { useState, useEffect } from "react";
+import { baseDefaultStyle } from "../../utils/baseDefaultStyle";
+
+const StickyCaptionImage = ({ id, imageSrc, caption, textBoxOptions }) => {
+  const [isSticky, setIsSticky] = useState(true);
+
   const defaultStyle = {
-    position: "sticky",
+    ...baseDefaultStyle,
+    position: isSticky ? "sticky" : "absolute",
     bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    color: "white",
+    left: 0,
+    right: 0,
     padding: "10px",
-    textAlign: "center",
-    fontSize: "1.5rem",
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const imageBottom = document
+        .getElementById(id)
+        .getBoundingClientRect().bottom;
+      if (imageBottom <= window.innerHeight && isSticky) {
+        setIsSticky(false);
+      } else if (imageBottom > window.innerHeight && !isSticky) {
+        setIsSticky(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [id, isSticky]);
 
   return (
     <div style={{ position: "relative" }}>
       <img
+        id={id}
         src={imageSrc}
         alt="background"
         style={{ width: "100%", height: "100%", objectFit: "cover" }}

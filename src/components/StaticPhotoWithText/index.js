@@ -1,14 +1,14 @@
+import { baseDefaultStyle } from "../../utils/baseDefaultStyle";
+
 const StaticPhotoWithText = ({ imageSrc, overlayText, textBoxOptions }) => {
   const defaultStyle = {
+    ...baseDefaultStyle,
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    color: "white",
     padding: "10px",
     borderRadius: "5px",
-    textAlign: "left",
     fontSize: "2rem",
   };
 

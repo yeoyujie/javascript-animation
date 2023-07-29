@@ -67,9 +67,18 @@ function App() {
           backgroundColor: "rgba(0, 0, 0, 0.5)",
         }}
       />
-      <StickyCaptionImage imageSrc={templateGif} caption={defaultText} />
+      <StickyCaptionImage
+        id="image1"
+        imageSrc={templateGif}
+        caption={defaultText}
+      />
       <VideoPlayer videoSrc={animatedVideo} />
-      <StickyCaptionImage imageSrc={mastHeadImg} caption={defaultText} />
+      <StickyCaptionImage
+        id="image2"
+        imageSrc={mastHeadImg}
+        caption={defaultText}
+      />
+
       <StaticPhotoWithText imageSrc={aerialview} overlayText={defaultText} />
       {/* <PanolensViewer imageSrc={pic} container=".image-container-1" />
       <PanolensViewer imageSrc={pic2} container=".image-container-2" /> */}

@@ -1,8 +1,7 @@
-import { useEffect, useRef } from 'react';
-import * as PANOLENS from 'panolens';
+import { useEffect, useRef } from "react";
+import * as PANOLENS from "panolens";
 
 const BasePanolens = ({ imageSrc, overlaySrc, overlayText, container }) => {
-
   useEffect(() => {
     const panorama = new PANOLENS.ImagePanorama(imageSrc);
 
@@ -15,7 +14,6 @@ const BasePanolens = ({ imageSrc, overlaySrc, overlayText, container }) => {
     });
 
     viewer.add(panorama);
-
   }, [imageSrc, container]);
 
   return (
@@ -24,18 +22,19 @@ const BasePanolens = ({ imageSrc, overlaySrc, overlayText, container }) => {
       {overlaySrc && (
         <img
           src={overlaySrc}
-          style={{ position: 'absolute', bottom: 0, left: 0 }}
+          alt="overlay"
+          style={{ position: "absolute", bottom: 0, left: 0 }}
         />
       )}
       {overlayText && (
         <div
           style={{
-            position: 'absolute',
+            position: "absolute",
             bottom: 100,
             right: 100,
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            color: 'white',
-            padding: '10px',
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            color: "white",
+            padding: "10px",
           }}
         >
           {overlayText}
