@@ -20,7 +20,6 @@ function LottieWrapper({ animationData, message }) {
       },
       { threshold: 0.5 }
     );
-
     observer.observe(containerRef.current);
 
     return () => observer.disconnect();
@@ -32,7 +31,7 @@ function LottieWrapper({ animationData, message }) {
       <p>{message}</p>
       <button
         className="scroll-to-top-button"
-        onClick={() => window.scrollTo(0, 0)}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         Scroll to Top
       </button>

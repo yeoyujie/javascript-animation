@@ -31,8 +31,8 @@ const BasePanolens = ({ imageSrc, overlaySrc, overlayText, container }) => {
         <div
           style={{
             position: 'absolute',
-            bottom: 0,
-            right: 0,
+            bottom: 100,
+            right: 100,
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
             color: 'white',
             padding: '10px',

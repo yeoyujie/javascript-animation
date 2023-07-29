@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import * as PANOLENS from "panolens";
 
 const viewerOptions = {
@@ -31,7 +31,48 @@ const CustomPanolens = ({
   overlayText,
   container,
   viewerOptions,
+  textBoxOptions,
+  animateTextBox = true,
 }) => {
+  const [inView, setInView] = useState(false);
+  const ref = useRef(null);
+
+  const defaultStyle = {
+    position: "absolute",
+    bottom: 50,
+    right: 50,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    color: "white",
+    padding: "10px",
+    width: "30%",
+    textAlign: "left",
+    animation: animateTextBox
+      ? inView
+        ? "fadeIn 1s linear"
+        : "fadeOut 1s linear"
+      : "",
+    opacity: animateTextBox ? (inView ? 1 : 0) : 1,
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.7,
+      }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   useEffect(() => {
     const panorama = new PANOLENS.ImagePanorama(imageSrc);
 
@@ -44,24 +85,19 @@ const CustomPanolens = ({
   }, [imageSrc, container]);
 
   return (
-    <div className="viewer-container">
+    <div className="viewer-container" ref={ref}>
       <div className={`image-container ${container.slice(1)}`} />
       {overlaySrc && (
         <img
           src={overlaySrc}
+          alt="overlay"
           style={{ position: "absolute", bottom: 0, left: 0 }}
         />
       )}
       {overlayText && (
         <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            right: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            color: "white",
-            padding: "10px",
-          }}
+          // Merge defaultStyle and textBoxOptions, with textBoxOptions taking precedence
+          style={{ ...defaultStyle, ...textBoxOptions }}
         >
           {overlayText}
         </div>
