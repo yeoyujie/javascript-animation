@@ -1,38 +1,33 @@
-import { Element, animateScroll as scroll } from 'react-scroll';
-import useScrollSnap from "react-use-scroll-snap";
-import { useRef } from 'react';
+import { useRef } from "react";
 
-import VideoScroll from './components/VideoScroll';
-import ProgressBar from './components/ProgressBar';
-import aerialview from './assets/aerialview.jpg';
-import animatedVideo from './assets/video.mp4'
-import miniMap from './assets/sg.svg';
-import Success from './assets/success.json';
-import LottieWrapper from './components/LottieWrapper';
+import VideoScroll from "./components/VideoScroll";
+import ProgressBar from "./components/ProgressBar";
+import aerialview from "./assets/aerialview.jpg";
+import animatedVideo from "./assets/video.mp4";
+import miniMap from "./assets/sg.svg";
+import Success from "./assets/success.json";
+import LottieWrapper from "./components/LottieWrapper";
 
-import LandingPage from './components/LandingPage';
-import ExpandableText from './components/ExpandableText';
+import LandingPage from "./components/LandingPage";
+import ExpandableText from "./components/ExpandableText";
 
-import BasePanolens from './components/BasePanolens';
-import PanolensViewer from './components/PanolensViewer';
-import CustomPanolens from './components/CustomPanolens';
+import BasePanolens from "./components/BasePanolens";
+import PanolensViewer from "./components/PanolensViewer";
+import CustomPanolens from "./components/CustomPanolens";
 
-import pic from './assets/panorama/panel1.jpeg';
-import pic2 from './assets/panorama/pic3.jpg';
+import pic from "./assets/panorama/panel1.jpeg";
+import pic2 from "./assets/panorama/pic3.jpg";
 
-import landingImg from './assets/landing.jpg';
-import landingGif from './assets/landing.gif';
+import landingImg from "./assets/landing.jpg";
+import landingGif from "./assets/landing.gif";
 
-import googleImg from './assets/google.png';
+import googleImg from "./assets/google.png";
 
-import './App.css';
+import "./App.css";
 
 function App() {
-  const scrollRef = useRef(null);
-  useScrollSnap({ ref: scrollRef, duration: 80, delay: 50 });
-
   return (
-    <div className="App" ref={scrollRef}>
+    <div className="App">
       <LandingPage imageSrc={landingGif} />
       <ExpandableText
         text="This is some example text that will be displayed in the ExpandableText component."
@@ -55,7 +50,7 @@ function App() {
       <CustomPanolens
         imageSrc={`${pic}?instance=3`}
         overlaySrc={googleImg}
-        overlayText={'This is some overlay text'}
+        overlayText={"This is some overlay text"}
         container=".image-container-3"
         viewerOptions={{
           autoRotate: true,
@@ -72,11 +67,14 @@ function App() {
           <p>Welcome to the virtual site visit</p>
         </section>
         <VideoScroll videoSrc={animatedVideo} srcMap={miniMap} />
-        <LottieWrapper animationData={Success} message="Congratulations on completing the tour!" scrollToTopButton={scrollToTopButton} />
+
       </Element> */}
+      <LottieWrapper
+        animationData={Success}
+        message="Congratulations on completing the tour!"
+      />
     </div>
   );
 }
-
 
 export default App;
