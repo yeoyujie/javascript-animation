@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import * as PANOLENS from "panolens";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const defaultViewerOptions = {
   // container: The DOM element to append the viewer to. Default is document.body.
@@ -20,9 +21,9 @@ const defaultViewerOptions = {
   // autoRotateActivationDuration: The duration of mouse inactivity before auto rotation starts in milliseconds. Default is 5000.
   // orbitControls: Whether to use orbit controls instead of device orientation controls. Default is false.
   // Pass it to the component as a prop in src\App.js. Example:
-  autoRotate: true,
-  cameraFov: 120,
-  autoRotateSpeed: 2.5,
+  // autoRotate: true,
+  // cameraFov: 120,
+  // autoRotateSpeed: 2.5,
 };
 
 const CustomPanolens = ({
@@ -54,24 +55,17 @@ const CustomPanolens = ({
     opacity: animateTextBox ? (inView ? 1 : 0) : 1,
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setInView(entry.isIntersecting);
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.7,
-      }
-    );
-    if (ref.current) {
-      observer.observe(ref.current);
+  useIntersectionObserver(
+    ref,
+    ([entry]) => {
+      setInView(entry.isIntersecting);
+    },
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.7,
     }
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  );
 
   useEffect(() => {
     const panorama = new PANOLENS.ImagePanorama(imageSrc);

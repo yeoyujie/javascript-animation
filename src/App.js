@@ -6,21 +6,27 @@ import BasePanolens from "./components/BasePanolens";
 import PanolensViewer from "./components/PanolensViewer";
 import CustomPanolens from "./components/CustomPanolens";
 import StaticPhotoWithText from "./components/StaticPhotoWithText";
+import StickyCaptionImage from "./components/StickyCaptionImage";
 import VideoPlayer from "./components/VideoPlayer";
 import LottieWrapper from "./components/LottieWrapper";
 
 import animatedVideo from "./assets/video.mp4";
 
 import aerialview from "./assets/aerialview.jpg";
+import mastHeadImg from "./assets/masthead.jpg";
 import miniMap from "./assets/sg.svg";
 import Success from "./assets/success.json";
 import pic from "./assets/panorama/panel1.jpeg";
+import pic2 from "./assets/panorama/panel2.jpg";
+
 import landingGif from "./assets/landing.gif";
+import templateGif from "./assets/template.gif";
 import googleImg from "./assets/google.png";
 
 import "./App.css";
 
 function App() {
+  const defaultText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas, libero nec tristique pellentesque, quam nibh aliquet urna, ut ornare sem leo vitae eros. Nunc porttitor ut tortor id pulvinar. Praesent nec velit lobortis, eleifend magna ut, suscipit est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras mattis urna odio, vitae feugiat mauris imperdiet non. Duis vulputate porttitor nulla, at convallis nibh maximus eget. Curabitur vitae augue velit. Pellentesque ac tortor at ligula posuere euismod ut id elit.`;
   return (
     <div className="App">
       <ProgressBar />
@@ -39,12 +45,12 @@ function App() {
         container=".image-container-1"
       />
       <BasePanolens
-        imageSrc={`${pic}?instance=2`}
+        imageSrc={`${pic2}?`}
         overlaySrc={googleImg}
         container=".image-container-2"
       />
       <CustomPanolens
-        imageSrc={`${pic}?instance=3`}
+        imageSrc={`${pic}?instance=2`}
         overlaySrc={googleImg}
         overlayText={`This is some overlay text This is some overlay textT his is some overlay text.
         This is some overlay text. This is some overlay text`}
@@ -61,13 +67,10 @@ function App() {
           backgroundColor: "rgba(0, 0, 0, 0.5)",
         }}
       />
+      <StickyCaptionImage imageSrc={templateGif} caption={defaultText} />
       <VideoPlayer videoSrc={animatedVideo} />
-      <StaticPhotoWithText
-        imageSrc={aerialview}
-        overlayText={`This is some overlay text This is some overlay textT his is some overlay text.
-        This is some overlay text. This is some overlay text. This is some overlay text This is some overlay textT his is some overlay text.
-        This is some overlay text. This is some overlay text`}
-      />
+      <StickyCaptionImage imageSrc={mastHeadImg} caption={defaultText} />
+      <StaticPhotoWithText imageSrc={aerialview} overlayText={defaultText} />
       {/* <PanolensViewer imageSrc={pic} container=".image-container-1" />
       <PanolensViewer imageSrc={pic2} container=".image-container-2" /> */}
       {/* <Element name="scrollContainer" className="scroll-container">

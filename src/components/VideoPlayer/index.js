@@ -1,10 +1,22 @@
-import { useRef, useEffect } from "react";
-import useIntersectionObserver from "../useIntersectionObserver";
+import { useRef } from "react";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const VideoPlayer = ({ videoSrc }) => {
   const videoRef = useRef(null);
 
-  useIntersectionObserver(videoRef, null, { threshold: 0.5 });
+  useIntersectionObserver(
+    videoRef,
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          videoRef.current.play();
+        } else {
+          videoRef.current.pause();
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
 
   return (
     <video
