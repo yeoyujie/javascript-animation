@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import * as PANOLENS from "panolens";
 
-const viewerOptions = {
+const defaultViewerOptions = {
   // container: The DOM element to append the viewer to. Default is document.body.
   // cameraFov: The field of view of the camera in degrees. Default is 60.
   // controlBar: Whether to show the control bar at the bottom of the viewer. Default is true.
@@ -82,7 +82,7 @@ const CustomPanolens = ({
     });
 
     viewer.add(panorama);
-  }, [imageSrc, container]);
+  }, [imageSrc, container, viewerOptions]);
 
   return (
     <div className="viewer-container" ref={ref}>

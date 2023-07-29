@@ -1,14 +1,11 @@
 import VideoScroll from "./components/VideoScroll";
 import ProgressBar from "./components/ProgressBar";
 import LandingPage from "./components/LandingPage";
-import ExpandableText from "./components/ExpandableText";
-
+import TextSection from "./components/TextSection";
 import BasePanolens from "./components/BasePanolens";
 import PanolensViewer from "./components/PanolensViewer";
 import CustomPanolens from "./components/CustomPanolens";
-
 import FullWidthPhotoWithText from "./components/FullWidthPhotoWithText";
-
 import LottieWrapper from "./components/LottieWrapper";
 
 import animatedVideo from "./assets/video.mp4";
@@ -16,13 +13,8 @@ import animatedVideo from "./assets/video.mp4";
 import aerialview from "./assets/aerialview.jpg";
 import miniMap from "./assets/sg.svg";
 import Success from "./assets/success.json";
-
 import pic from "./assets/panorama/panel1.jpeg";
-import pic2 from "./assets/panorama/pic3.jpg";
-
-import landingImg from "./assets/landing.jpg";
 import landingGif from "./assets/landing.gif";
-
 import googleImg from "./assets/google.png";
 
 import "./App.css";
@@ -32,7 +24,7 @@ function App() {
     <div className="App">
       <ProgressBar />
       <LandingPage imageSrc={landingGif} />
-      <ExpandableText
+      <TextSection
         text="This is some example text that will be displayed in the ExpandableText component."
         backgroundImage="https://picsum.photos/1080/800"
       />
@@ -54,7 +46,7 @@ function App() {
         imageSrc={`${pic}?instance=3`}
         overlaySrc={googleImg}
         overlayText={`This is some overlay text This is some overlay textT his is some overlay text.
-        This is some overlay textThis is some overlay text`}
+        This is some overlay text. This is some overlay text`}
         container=".image-container-3"
         viewerOptions={{
           autoRotate: true,
@@ -71,7 +63,8 @@ function App() {
       <FullWidthPhotoWithText
         imageSrc={aerialview}
         overlayText={`This is some overlay text This is some overlay textT his is some overlay text.
-        This is some overlay textThis is some overlay text`}
+        This is some overlay text. This is some overlay text. This is some overlay text This is some overlay textT his is some overlay text.
+        This is some overlay text. This is some overlay text`}
       />
       {/* <PanolensViewer imageSrc={pic} container=".image-container-1" />
       <PanolensViewer imageSrc={pic2} container=".image-container-2" /> */}
