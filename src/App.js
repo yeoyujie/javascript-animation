@@ -1,16 +1,16 @@
 import { Element } from 'react-scroll';
 
-import VideoScroll from "./components/VideoScroll";
+import VideoScroll from "./components/Media/VideoScroll";
 import ProgressBar from "./components/ProgressBar";
 import LandingPage from "./components/LandingPage";
 import TextSection from "./components/TextSection";
 import BasePanolens from "./components/Panolens/BasePanolens";
-import PanolensViewer from "./components/Panolens/PanolensViewer";
+import ScrollRotatingPanoramicImage from "./components/Panolens/ScrollRotatingPanoramicImage";
 import CustomPanolens from "./components/Panolens/CustomPanolens";
 import StaticPhotoWithText from "./components/StaticPhotoWithText";
 import StickyCaptionImage from "./components/StickyCaptionImage";
 import StaticPhotoWithSideCaptions from './components/StaticPhotoWithSideCaptions';
-import VideoPlayer from "./components/VideoPlayer";
+import VideoPlayer from "./components/Media/VideoPlayer";
 import LottieWrapper from "./components/Media/LottieWrapper";
 
 import animatedVideo from "./assets/video.mp4";
@@ -48,7 +48,7 @@ function App() {
       This will cause the browser to treat each image URL as a separate resource, even if they point to the same image file. 
       This should allow both instances of the `BasePanolens` component to load and display the image correctly.
       */}
-      <BasePanolens
+      {/* <BasePanolens
         imageSrc={`${pic}?instance=1`}
         container=".image-container-1"
       />
@@ -87,9 +87,9 @@ function App() {
       />
 
       <StaticPhotoWithText imageSrc={aerialview} overlayText={defaultText} />
-      <StaticPhotoWithSideCaptions imageSrc={mastHeadImg} caption={defaultText} />
-      {/* <PanolensViewer imageSrc={pic} container=".image-container-1" />
-      <PanolensViewer imageSrc={pic2} container=".image-container-2" /> */}
+      <StaticPhotoWithSideCaptions imageSrc={mastHeadImg} caption={defaultText} /> */}
+      <ScrollRotatingPanoramicImage imageSrc={pic} container=".image-container-4" />
+      <ScrollRotatingPanoramicImage imageSrc={pic2} container=".image-container-5" />
       {/* <Element name="scrollContainer" className="scroll-container">
         <section className="intro-section" style={{ backgroundImage: `url(${aerialview})` }}>
           <p>Welcome to the virtual site visit</p>

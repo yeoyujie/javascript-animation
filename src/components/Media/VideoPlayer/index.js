@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import useIntersectionObserver from "../../../hooks/useIntersectionObserver";
 
 const VideoPlayer = ({ videoSrc }) => {
   const videoRef = useRef(null);
