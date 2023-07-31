@@ -4,7 +4,7 @@ const TextSection = ({ text, backgroundImage }) => {
   const containerStyle = {
     ...baseDefaultStyle,
     padding: "10vh 1rem",
-    minHeight: "80vh",
+    minHeight: "85vh",
     backgroundColor: "black",
     backgroundImage: backgroundImage ? `url(${backgroundImage})` : null,
     backgroundSize: "cover",
@@ -14,7 +14,7 @@ const TextSection = ({ text, backgroundImage }) => {
   const textStyle = {
     fontFamily: "sans-serif",
     fontSize: "2rem",
-    color: "#333",
+    color: "white",
   };
 
   return (

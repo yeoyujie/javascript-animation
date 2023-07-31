@@ -26,6 +26,7 @@ import landingGif from "./assets/landing.gif";
 import templateGif from "./assets/template.gif";
 import googleImg from "./assets/google.png";
 import buildingImg from "./assets/buildings.jpeg";
+import singaporeImg from "./assets/singapore.jpg";
 
 import "./App.css";
 
@@ -40,8 +41,8 @@ function App() {
       <ProgressBar />
       <LandingPage imageSrc={landingGif} />
       <TextSection
-        text="This is some example text that will be displayed in the ExpandableText component."
-        backgroundImage={buildingImg}
+        text={defaultText}
+        backgroundImage={singaporeImg}
       />
       {/* 
       We're appending a unique `instance` query parameter to the `imageSrc` prop for each instance of the `BasePanolens` component. 
