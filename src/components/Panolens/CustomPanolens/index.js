@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import * as PANOLENS from "panolens";
-import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import useIntersectionObserver from "../../../hooks/useIntersectionObserver";
 
 const defaultViewerOptions = {
   // container: The DOM element to append the viewer to. Default is document.body.

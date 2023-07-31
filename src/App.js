@@ -4,14 +4,14 @@ import VideoScroll from "./components/VideoScroll";
 import ProgressBar from "./components/ProgressBar";
 import LandingPage from "./components/LandingPage";
 import TextSection from "./components/TextSection";
-import BasePanolens from "./components/BasePanolens";
-import PanolensViewer from "./components/PanolensViewer";
-import CustomPanolens from "./components/CustomPanolens";
+import BasePanolens from "./components/Panolens/BasePanolens";
+import PanolensViewer from "./components/Panolens/PanolensViewer";
+import CustomPanolens from "./components/Panolens/CustomPanolens";
 import StaticPhotoWithText from "./components/StaticPhotoWithText";
 import StickyCaptionImage from "./components/StickyCaptionImage";
 import StaticPhotoWithSideCaptions from './components/StaticPhotoWithSideCaptions';
 import VideoPlayer from "./components/VideoPlayer";
-import LottieWrapper from "./components/LottieWrapper";
+import LottieWrapper from "./components/Media/LottieWrapper";
 
 import animatedVideo from "./assets/video.mp4";
 
@@ -25,7 +25,6 @@ import pic2 from "./assets/panorama/panel2.jpg";
 import landingGif from "./assets/landing.gif";
 import templateGif from "./assets/template.gif";
 import googleImg from "./assets/google.png";
-import buildingImg from "./assets/buildings.jpeg";
 import singaporeImg from "./assets/singapore.jpg";
 
 import "./App.css";
