@@ -1,3 +1,5 @@
+import { Element } from 'react-scroll';
+
 import VideoScroll from "./components/VideoScroll";
 import ProgressBar from "./components/ProgressBar";
 import LandingPage from "./components/LandingPage";
@@ -7,6 +9,7 @@ import PanolensViewer from "./components/PanolensViewer";
 import CustomPanolens from "./components/CustomPanolens";
 import StaticPhotoWithText from "./components/StaticPhotoWithText";
 import StickyCaptionImage from "./components/StickyCaptionImage";
+import StaticPhotoWithSideCaptions from './components/StaticPhotoWithSideCaptions';
 import VideoPlayer from "./components/VideoPlayer";
 import LottieWrapper from "./components/LottieWrapper";
 
@@ -22,18 +25,23 @@ import pic2 from "./assets/panorama/panel2.jpg";
 import landingGif from "./assets/landing.gif";
 import templateGif from "./assets/template.gif";
 import googleImg from "./assets/google.png";
+import buildingImg from "./assets/buildings.jpeg";
 
 import "./App.css";
 
 function App() {
-  const defaultText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas, libero nec tristique pellentesque, quam nibh aliquet urna, ut ornare sem leo vitae eros. Nunc porttitor ut tortor id pulvinar. Praesent nec velit lobortis, eleifend magna ut, suscipit est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras mattis urna odio, vitae feugiat mauris imperdiet non. Duis vulputate porttitor nulla, at convallis nibh maximus eget. Curabitur vitae augue velit. Pellentesque ac tortor at ligula posuere euismod ut id elit.`;
+  const defaultText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+  Mauris egestas, libero nec tristique pellentesque, quam nibh aliquet urna, ut ornare sem leo vitae eros.
+  Nunc porttitor ut tortor id pulvinar. Praesent nec velit lobortis, eleifend magna ut, suscipit est.
+  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+  Curabitur vitae augue velit. Pellentesque ac tortor at ligula posuere euismod ut id elit.`;
   return (
     <div className="App">
       <ProgressBar />
       <LandingPage imageSrc={landingGif} />
       <TextSection
         text="This is some example text that will be displayed in the ExpandableText component."
-        backgroundImage="https://picsum.photos/1080/800"
+        backgroundImage={buildingImg}
       />
       {/* 
       We're appending a unique `instance` query parameter to the `imageSrc` prop for each instance of the `BasePanolens` component. 
@@ -52,8 +60,7 @@ function App() {
       <CustomPanolens
         imageSrc={`${pic}?instance=2`}
         overlaySrc={googleImg}
-        overlayText={`This is some overlay text This is some overlay textT his is some overlay text.
-        This is some overlay text. This is some overlay text`}
+        overlayText={defaultText}
         container=".image-container-3"
         viewerOptions={{
           autoRotate: true,
@@ -80,6 +87,7 @@ function App() {
       />
 
       <StaticPhotoWithText imageSrc={aerialview} overlayText={defaultText} />
+      <StaticPhotoWithSideCaptions imageSrc={mastHeadImg} caption={defaultText} />
       {/* <PanolensViewer imageSrc={pic} container=".image-container-1" />
       <PanolensViewer imageSrc={pic2} container=".image-container-2" /> */}
       {/* <Element name="scrollContainer" className="scroll-container">

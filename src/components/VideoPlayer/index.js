@@ -22,7 +22,7 @@ const VideoPlayer = ({ videoSrc }) => {
     <video
       ref={videoRef}
       src={videoSrc}
-      style={{ width: "100vw" }}
+      style={{ width: "100vw", display: "flex" }}
       loop
       muted
     />

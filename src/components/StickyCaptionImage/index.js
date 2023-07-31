@@ -11,6 +11,7 @@ const StickyCaptionImage = ({ id, imageSrc, caption, textBoxOptions }) => {
     left: 0,
     right: 0,
     padding: "10px",
+    fontSize: "1rem",
   };
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const StickyCaptionImage = ({ id, imageSrc, caption, textBoxOptions }) => {
   }, [id, isSticky]);
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", background: "black" }}>
       <img
         id={id}
         src={imageSrc}

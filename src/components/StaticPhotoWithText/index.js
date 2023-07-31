@@ -13,11 +13,11 @@ const StaticPhotoWithText = ({ imageSrc, overlayText, textBoxOptions }) => {
   };
 
   return (
-    <div style={{ position: "relative", alignItems: "center" }}>
+    <div style={{ position: "relative", display: "flex" }}>
       <img
         src={imageSrc}
         alt="overlay"
-        style={{ width: "100%", height: "100vh" }}
+        style={{ width: "100%" }}
       />
       {overlayText && (
         // The spread operator (...) is used to merge the defaultStyle and textBoxOptions objects.

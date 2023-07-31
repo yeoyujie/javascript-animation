@@ -4,7 +4,7 @@ const TextSection = ({ text, backgroundImage }) => {
   const containerStyle = {
     ...baseDefaultStyle,
     padding: "10vh 1rem",
-    minHeight: "50vh",
+    minHeight: "80vh",
     backgroundColor: "black",
     backgroundImage: backgroundImage ? `url(${backgroundImage})` : null,
     backgroundSize: "cover",
