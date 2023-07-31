@@ -1,5 +1,7 @@
 import seedrandom from 'seedrandom'
 
+
+// WIP. Currently the marker just turns round and round.
 function LocationMarker({ videoCurrentTime }) {
 
     function calculateCirclePosition(videoCurrentTime) {

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import * as PANOLENS from 'panolens';
-import * as ScrollMagic from 'scrollmagic';
 // import * as THREE from 'three';
 
 
@@ -11,7 +10,7 @@ const ScrollRotatingPanoramicImage = ({ imageSrc, container }) => {
         const panorama = new PANOLENS.ImagePanorama(imageSrc);
         panoramaRef.current = panorama;
 
-        const viewer = new PANOLENS.Viewer({
+        const viewer = new PANOLENS.Viewer({    
             container: document.querySelector(container),
             autoRotate: false,
             controlBar: false,

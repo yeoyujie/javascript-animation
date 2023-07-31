@@ -1,4 +1,4 @@
-const LandingPage = ({ imageSrc }) => {
+const WelcomeSection = ({ imageSrc }) => {
   const containerStyle = {
     backgroundImage: `url(${imageSrc})`,
     backgroundSize: 'cover',
@@ -20,4 +20,4 @@ const LandingPage = ({ imageSrc }) => {
   );
 };
 
-export default LandingPage;
+export default WelcomeSection;

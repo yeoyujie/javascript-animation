@@ -1,6 +1,7 @@
-import { baseDefaultStyle } from "../../utils/baseDefaultStyle";
+import { baseDefaultStyle } from "../../../utils/baseDefaultStyle";
 
 const StaticPhotoWithSideCaptions = ({ imageSrc, caption, textBoxOptions }) => {
+  
     const defaultStyle = {
         ...baseDefaultStyle,
         position: 'absolute',

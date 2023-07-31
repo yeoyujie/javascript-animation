@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+// Progress bar that shows how far the user has scrolled down the page
 function ProgressBar() {
   const [scrollProgress, setScrollProgress] = useState(0);
 

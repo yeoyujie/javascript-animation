@@ -54,6 +54,7 @@ const CustomPanolens = ({
         : "fadeOut 1s linear"
       : "",
     opacity: animateTextBox ? (inView ? 1 : 0) : 1,
+    ...textBoxOptions
   };
 
   useIntersectionObserver(
@@ -92,8 +93,7 @@ const CustomPanolens = ({
       )}
       {overlayText && (
         <div
-          // Merge defaultStyle and textBoxOptions, with textBoxOptions taking precedence
-          style={{ ...defaultStyle, ...textBoxOptions }}
+          style={defaultStyle}
         >
           {overlayText}
         </div>

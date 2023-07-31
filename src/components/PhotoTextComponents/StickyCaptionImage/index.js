@@ -1,17 +1,23 @@
 import { useState, useEffect } from "react";
-import { baseDefaultStyle } from "../../utils/baseDefaultStyle";
+import { baseDefaultStyle } from "../../../utils/baseDefaultStyle";
 
 const StickyCaptionImage = ({ id, imageSrc, caption, textBoxOptions }) => {
   const [isSticky, setIsSticky] = useState(true);
 
-  const defaultStyle = {
+  // This code defines a textBoxStyle object that contains a set of default styles for an element.
+  // The defaultStyle object is created by merging the properties of the baseDefaultStyle object,
+  // the custom styles passed in through textBoxOptions, and some additional default styles.
+  // The order of precedence is such that the custom styles passed in through textBoxOptions will
+  // take priority over the default styles define
+  const textBoxStyle = {
     ...baseDefaultStyle,
     position: isSticky ? "sticky" : "absolute",
     bottom: 0,
     left: 0,
     right: 0,
-    padding: "10px",
+    padding: "30px",
     fontSize: "1rem",
+    ...textBoxOptions
   };
 
   useEffect(() => {
@@ -38,7 +44,7 @@ const StickyCaptionImage = ({ id, imageSrc, caption, textBoxOptions }) => {
         alt="background"
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
       />
-      <div style={{ ...defaultStyle, ...textBoxOptions }}>{caption}</div>
+      <div style={textBoxStyle}>{caption}</div>
     </div>
   );
 };

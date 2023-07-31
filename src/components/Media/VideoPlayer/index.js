@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import useIntersectionObserver from "../../../hooks/useIntersectionObserver";
 
-const VideoPlayer = ({ videoSrc }) => {
+const VideoPlayer = ({ videoSrc, thresholdValue=0.5 }) => {
   const videoRef = useRef(null);
 
   useIntersectionObserver(
@@ -15,7 +15,7 @@ const VideoPlayer = ({ videoSrc }) => {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: thresholdValue }
   );
 
   return (
