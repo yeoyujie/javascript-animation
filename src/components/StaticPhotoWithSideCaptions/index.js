@@ -18,8 +18,8 @@ const StaticPhotoWithSideCaptions = ({ imageSrc, caption, textBoxOptions }) => {
       };
     
       return (
-        <div style={{ position: 'relative' }}>
-          <img src={imageSrc} alt="background" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div style={{ position: 'relative', display: "flex", height: "100vh" }}>
+          <img src={imageSrc} alt="background" style={{ width: '100%', objectFit: 'cover' }} />
           <div style={defaultStyle}>{caption}</div>
         </div>
       );
