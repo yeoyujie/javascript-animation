@@ -10,7 +10,7 @@ import FixedRotatingPanoramicImage from './components/Panolens/FixedRotatingPano
 import CustomPanolens from "./components/Panolens/CustomPanolens";
 import StaticPhotoWithText from "./components/PhotoTextComponents/StaticPhotoWithText";
 import StickyCaptionImage from "./components/PhotoTextComponents/StickyCaptionImage";
-import StaticPhotoWithSideOverlay from './components/PhotoTextComponents/StaticPhotoWithSideOverlay';
+import PhotoWithCaption from './components/PhotoTextComponents/PhotoWithCaption';
 import VideoPlayer from "./components/Media/VideoPlayer";
 import LottieWrapper from "./components/Media/LottieWrapper";
 
@@ -95,21 +95,15 @@ function App() {
         }}
       />
 
-      <StaticPhotoWithSideOverlay imageSrc={mastHeadImg} caption={defaultText} overlayPosition="left" />
-      <StaticPhotoWithSideOverlay imageSrc={smartCityImg} caption={defaultText} />
+      <PhotoWithCaption imageSrc={mastHeadImg} caption={defaultText} overlayStyleType='bottomRight'/>
+      <PhotoWithCaption imageSrc={smartCityImg} caption={defaultText} />
       <ScrollRotatingPanoramicImage
         imageSrc={`${pic}?instance=4`}
         container=".image-container-4"
         overlayText={defaultText}
-        overlayStyleType="right"
+        overlayStyleType="bottomRight"
         viewerOptions={{ controlBar: true }} />
       <StaticPhotoWithText imageSrc={mastHeadImg} overlayText={defaultText} textBoxOptions={{ fontSize: "1.2rem" }} />
-      <ScrollRotatingPanoramicImage
-        imageSrc={`${pic}?instance=5`}
-        container=".image-container-5"
-        overlayText={defaultText}
-        overlayStyleType="bottomLeft" />
-
       <LottieWrapper
         animationData={Success}
         message="Congratulations on completing the tour!"
