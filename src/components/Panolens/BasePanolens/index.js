@@ -8,7 +8,6 @@ const BasePanolens = ({ imageSrc, overlaySrc, overlayText, container }) => {
     const viewer = new PANOLENS.Viewer({
       container: document.querySelector(container),
       autoRotate: true,
-      // Control the speed of rotation
       autoRotateSpeed: 0.5,
       controlBar: false,
     });

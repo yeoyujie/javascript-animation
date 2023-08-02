@@ -18,6 +18,15 @@ const sideOverlayStyle = {
   fontSize: "1rem",
 };
 
+const boxOverlayStyle = {
+  ...baseDefaultStyle,
+  position: "absolute",
+  bottom: 50,
+  padding: "10px",
+  width: "30%",
+  fontSize: "1rem",
+};
+
 export const rightSideOverlayStyle = {
   ...sideOverlayStyle,
   right: 0,
@@ -28,12 +37,18 @@ export const leftSideOverlayStyle = {
   left: 0,
 };
 
+
+
+
 export const bottomRightOverlayTextStyle = {
-  ...baseDefaultStyle,
-  position: "absolute",
-  bottom: 50,
+  ...boxOverlayStyle,
   right: 50,
-  padding: "10px",
-  width: "30%",
-  fontSize: "1rem",
 }
+
+
+export const bottomLeftOverlayTextStyle = {
+  ...boxOverlayStyle,
+  left: 50,
+}
+
+

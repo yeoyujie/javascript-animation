@@ -2,12 +2,14 @@ import { useEffect, useRef } from 'react';
 import { leftSideOverlayStyle, rightSideOverlayStyle, bottomLeftOverlayTextStyle, bottomRightOverlayTextStyle } from '../../../utils/stylePresets';
 import * as PANOLENS from 'panolens';
 
-const ScrollRotatingPanoramicImage = ({
+const FixedRotatingPanoramicImage = ({
     imageSrc,
     container,
-    textBoxOptions,
+    scrollingFactor = 0.001,
     overlayText,
-    overlayStyleType
+    textBoxOptions,
+    overlayStyleType,
+    viewerContainerHeight = "600vh"
 }) => {
     const panoramaRef = useRef(null);
 
@@ -42,16 +44,27 @@ const ScrollRotatingPanoramicImage = ({
 
         viewer.add(panorama);
 
+        let currentRotationY = 0;
         const handleScroll = () => {
             const scrollY = window.scrollY;
-            const rotationY = scrollY * 0.001;
-            panorama.rotation.y = rotationY;
+            let targetRotationY;
+            if (Math.floor(scrollY % 1000) > 500) {
+                // panorama should stay at current rotation
+                targetRotationY = currentRotationY;
+            } else {
+                // panorama should rotate from where its current position is stopped until it goes into the if block again
+                targetRotationY = scrollY * scrollingFactor;
+            }
+            currentRotationY += (targetRotationY - currentRotationY) * 0.1;
+            panorama.rotation.y = currentRotationY;
         };
+        
+        window.addEventListener("scroll", handleScroll);
         window.addEventListener("scroll", handleScroll);
     }, [imageSrc, container]);
 
     return (
-        <div className="viewer-container" style={{ height: "300vh" }}>
+        <div className="viewer-container" style={{ height: viewerContainerHeight  }}>
             <div
                 className={`image-container ${container.slice(1)}`}
                 style={{ position: "sticky", top: 0 }}
@@ -62,4 +75,4 @@ const ScrollRotatingPanoramicImage = ({
     );
 };
 
-export default ScrollRotatingPanoramicImage;
+export default FixedRotatingPanoramicImage;

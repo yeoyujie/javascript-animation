@@ -6,6 +6,7 @@ import WelcomeSection from "./components/WelcomeSection";
 import TextSection from "./components/TextSection";
 import BasePanolens from "./components/Panolens/BasePanolens";
 import ScrollRotatingPanoramicImage from "./components/Panolens/ScrollRotatingPanoramicImage";
+import FixedRotatingPanoramicImage from './components/Panolens/FixedRotatingPanoramicImage';
 import CustomPanolens from "./components/Panolens/CustomPanolens";
 import StaticPhotoWithText from "./components/PhotoTextComponents/StaticPhotoWithText";
 import StickyCaptionImage from "./components/PhotoTextComponents/StickyCaptionImage";
@@ -38,6 +39,12 @@ function App() {
     <div className="App">
       <ProgressBar />
       <WelcomeSection imageSrc={landingGif} />
+      <FixedRotatingPanoramicImage
+        imageSrc={`${pic}?instance=8`}
+        container=".image-container-8"
+        scrollingFactor={0.002}
+        overlayText={defaultText}
+        overlayStyleType="right" />
       <TextSection
         text={defaultText}
         backgroundImage={singaporeImg}
@@ -95,12 +102,13 @@ function App() {
         imageSrc={`${pic}?instance=4`}
         container=".image-container-4"
         overlayText={defaultText}
-        textBoxStyleType="style1" />
+        overlayStyleType="right" />
       <StaticPhotoWithText imageSrc={mastHeadImg} overlayText={defaultText} textBoxOptions={{ fontSize: "1.2rem" }} />
       <ScrollRotatingPanoramicImage
         imageSrc={`${pic}?instance=5`}
         container=".image-container-5"
-        overlayText={defaultText} />
+        overlayText={defaultText}
+        overlayStyleType="bottomLeft" />
       {/* <Element name="scrollContainer" className="scroll-container">
         <section className="intro-section" style={{ backgroundImage: `url(${mastHeadImg})` }}>
           <p>Welcome to the virtual site visit</p>
