@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import * as PANOLENS from "panolens";
 
-const BasePanolens = ({ imageSrc, overlaySrc, overlayText, container }) => {
+const BasePanolens = ({ imageSrc, overlayText, container }) => {
   useEffect(() => {
     const panorama = new PANOLENS.ImagePanorama(imageSrc);
 
@@ -18,13 +18,6 @@ const BasePanolens = ({ imageSrc, overlaySrc, overlayText, container }) => {
   return (
     <div className="viewer-container">
       <div className={`image-container ${container.slice(1)}`} />
-      {overlaySrc && (
-        <img
-          src={overlaySrc}
-          alt="overlay"
-          style={{ position: "absolute", bottom: 0, left: 0 }}
-        />
-      )}
       {overlayText && (
         <div
           style={{

@@ -23,16 +23,16 @@ const defaultViewerOptions = {
   // orbitControls: Whether to use orbit controls instead of device orientation controls. Default is false.
   // Pass it to the component as a prop in src\App.js. Example:
   autoRotate: true,
-  cameraFov: 120,
-  autoRotateSpeed: 2.5,
+  cameraFov: 60,
+  autoRotateSpeed: 1.5,
   controlBar: false,
 };
 
 const CustomPanolens = ({
   imageSrc,
+  container,
   overlaySrc,
   overlayText,
-  container,
   viewerOptions,
   textBoxOptions,
   animateTextBox = true,

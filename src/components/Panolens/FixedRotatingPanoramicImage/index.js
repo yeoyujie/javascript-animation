@@ -6,8 +6,12 @@ const FixedRotatingPanoramicImage = ({
     imageSrc,
     container,
     scrollingFactor = 0.001,
+    /* Increasing the value of rotationThreshold will cause the panorama to rotate for longer before stopping, 
+    while decreasing it will cause the panorama to stop rotating more frequently. */
+    rotationThreshold = 1000,
     overlayText,
     textBoxOptions,
+    viewerOptions,
     overlayStyleType,
     viewerContainerHeight = "600vh"
 }) => {
@@ -15,6 +19,7 @@ const FixedRotatingPanoramicImage = ({
 
     // Choose the overlay style based on the overlayStyleType prop
     let textBoxStyle;
+
     switch (overlayStyleType) {
         case "left":
             textBoxStyle = { ...leftSideOverlayStyle, ...textBoxOptions };
@@ -39,7 +44,8 @@ const FixedRotatingPanoramicImage = ({
         const viewer = new PANOLENS.Viewer({
             container: document.querySelector(container),
             autoRotate: false,
-            controlBar: false
+            controlBar: false,
+            ...viewerOptions,
         });
 
         viewer.add(panorama);
@@ -48,11 +54,11 @@ const FixedRotatingPanoramicImage = ({
         const handleScroll = () => {
             const scrollY = window.scrollY;
             let targetRotationY;
-            if (Math.floor(scrollY % 1000) > 500) {
-                // panorama should stay at current rotation
+            if (Math.floor(scrollY % (rotationThreshold * 2)) > rotationThreshold) {
+                // panorama stay at current rotation location
                 targetRotationY = currentRotationY;
             } else {
-                // panorama should rotate from where its current position is stopped until it goes into the if block again
+                // panorama rotate from where its current position was stopped previously   
                 targetRotationY = scrollY * scrollingFactor;
             }
             currentRotationY += (targetRotationY - currentRotationY) * 0.1;

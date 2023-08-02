@@ -5,9 +5,12 @@ import * as PANOLENS from 'panolens';
 const ScrollRotatingPanoramicImage = ({
     imageSrc,
     container,
+    scrollingFactor = 0.001,
     textBoxOptions,
+    viewerOptions,
     overlayText,
-    overlayStyleType
+    overlayStyleType,
+    viewerContainerHeight = "600vh"
 }) => {
     const panoramaRef = useRef(null);
 
@@ -37,21 +40,22 @@ const ScrollRotatingPanoramicImage = ({
         const viewer = new PANOLENS.Viewer({
             container: document.querySelector(container),
             autoRotate: false,
-            controlBar: false
+            controlBar: false,
+            ...viewerOptions
         });
 
         viewer.add(panorama);
 
         const handleScroll = () => {
             const scrollY = window.scrollY;
-            const rotationY = scrollY * 0.001;
+            const rotationY = scrollY * scrollingFactor;
             panorama.rotation.y = rotationY;
         };
         window.addEventListener("scroll", handleScroll);
     }, [imageSrc, container]);
 
     return (
-        <div className="viewer-container" style={{ height: "300vh" }}>
+        <div className="viewer-container" style={{ height: viewerContainerHeight }}>
             <div
                 className={`image-container ${container.slice(1)}`}
                 style={{ position: "sticky", top: 0 }}

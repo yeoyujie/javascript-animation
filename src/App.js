@@ -44,7 +44,7 @@ function App() {
         container=".image-container-8"
         scrollingFactor={0.002}
         overlayText={defaultText}
-        overlayStyleType="right" />
+        overlayStyleType="bottomRight" />
       <TextSection
         text={defaultText}
         backgroundImage={singaporeImg}
@@ -60,7 +60,6 @@ function App() {
       />
       <BasePanolens
         imageSrc={`${pic2}?`}
-        overlaySrc={googleImg}
         container=".image-container-2"
       />
       <CustomPanolens
@@ -71,13 +70,10 @@ function App() {
         viewerOptions={{
           autoRotate: true,
           cameraFov: 120,
-          autoRotateSpeed: 1.5,
+          autoRotateSpeed: 1.8,
         }}
         textBoxOptions={{
-          position: "absolute",
-          bottom: 50,
-          right: 50,
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          backgroundColor: "rgba(0, 0, 0, 0.4)",
         }}
       />
       <StickyCaptionImage
@@ -102,23 +98,25 @@ function App() {
         imageSrc={`${pic}?instance=4`}
         container=".image-container-4"
         overlayText={defaultText}
-        overlayStyleType="right" />
+        overlayStyleType="right"
+        viewerOptions={{ controlBar: true }} />
       <StaticPhotoWithText imageSrc={mastHeadImg} overlayText={defaultText} textBoxOptions={{ fontSize: "1.2rem" }} />
       <ScrollRotatingPanoramicImage
         imageSrc={`${pic}?instance=5`}
         container=".image-container-5"
         overlayText={defaultText}
         overlayStyleType="bottomLeft" />
+
+      <LottieWrapper
+        animationData={Success}
+        message="Congratulations on completing the tour!"
+      />
       {/* <Element name="scrollContainer" className="scroll-container">
         <section className="intro-section" style={{ backgroundImage: `url(${mastHeadImg})` }}>
           <p>Welcome to the virtual site visit</p>
         </section>
         <VideoScroll videoSrc={animatedVideo} srcMap={miniMap} />
       </Element> */}
-      <LottieWrapper
-        animationData={Success}
-        message="Congratulations on completing the tour!"
-      />
     </div>
   );
 }
