@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import * as PANOLENS from "panolens";
 import useIntersectionObserver from "../../../hooks/useIntersectionObserver";
+import { bottomRightOverlayTextStyle } from "../../../utils/stylePresets";
 
 const defaultViewerOptions = {
   // container: The DOM element to append the viewer to. Default is document.body.
@@ -39,15 +40,8 @@ const CustomPanolens = ({
   const [inView, setInView] = useState(false);
   const ref = useRef(null);
 
-  const defaultStyle = {
-    position: "absolute",
-    bottom: 50,
-    right: 50,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    color: "white",
-    padding: "10px",
-    width: "30%",
-    textAlign: "left",
+  const textBoxStyle = {
+    ...bottomRightOverlayTextStyle,
     animation: animateTextBox
       ? inView
         ? "fadeIn 1s linear"
@@ -93,7 +87,7 @@ const CustomPanolens = ({
       )}
       {overlayText && (
         <div
-          style={defaultStyle}
+          style={textBoxStyle}
         >
           {overlayText}
         </div>

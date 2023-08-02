@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { baseDefaultStyle } from "../../../utils/baseDefaultStyle";
+import { baseDefaultStyle } from "../../../utils/stylePresets";
 
 const StickyCaptionImage = ({ id, imageSrc, caption, textBoxOptions }) => {
   const [isSticky, setIsSticky] = useState(true);
@@ -15,7 +15,7 @@ const StickyCaptionImage = ({ id, imageSrc, caption, textBoxOptions }) => {
     bottom: 0,
     left: 0,
     right: 0,
-    padding: "30px",
+    padding: "40px",
     fontSize: "1rem",
     ...textBoxOptions
   };

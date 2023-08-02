@@ -9,12 +9,13 @@ import ScrollRotatingPanoramicImage from "./components/Panolens/ScrollRotatingPa
 import CustomPanolens from "./components/Panolens/CustomPanolens";
 import StaticPhotoWithText from "./components/PhotoTextComponents/StaticPhotoWithText";
 import StickyCaptionImage from "./components/PhotoTextComponents/StickyCaptionImage";
-import StaticPhotoWithSideCaptions from './components/PhotoTextComponents/StaticPhotoWithSideCaptions';
+import StaticPhotoWithSideOverlay from './components/PhotoTextComponents/StaticPhotoWithSideOverlay';
 import VideoPlayer from "./components/Media/VideoPlayer";
 import LottieWrapper from "./components/Media/LottieWrapper";
 
 import animatedVideo from "./assets/video.mp4";
 import mastHeadImg from "./assets/masthead.jpg";
+import smartCityImg from "./assets/smartcity.webp";
 import miniMap from "./assets/sg.svg";
 import Success from "./assets/success.json";
 import pic from "./assets/panorama/panel1.jpeg";
@@ -88,11 +89,20 @@ function App() {
         }}
       />
 
+      <StaticPhotoWithSideOverlay imageSrc={mastHeadImg} caption={defaultText} overlayPosition="left" />
+      <StaticPhotoWithSideOverlay imageSrc={smartCityImg} caption={defaultText} />
+      <ScrollRotatingPanoramicImage
+        imageSrc={`${pic}?instance=4`}
+        container=".image-container-4"
+        overlayText={defaultText}
+        textBoxStyleType="style1" />
       <StaticPhotoWithText imageSrc={mastHeadImg} overlayText={defaultText} textBoxOptions={{ fontSize: "1.2rem" }} />
-      <StaticPhotoWithSideCaptions imageSrc={mastHeadImg} caption={defaultText} />
-      <ScrollRotatingPanoramicImage imageSrc={pic} container=".image-container-4" />
+      <ScrollRotatingPanoramicImage
+        imageSrc={`${pic}?instance=5`}
+        container=".image-container-5"
+        overlayText={defaultText} />
       {/* <Element name="scrollContainer" className="scroll-container">
-        <section className="intro-section" style={{ backgroundImage: `url(${aerialview})` }}>
+        <section className="intro-section" style={{ backgroundImage: `url(${mastHeadImg})` }}>
           <p>Welcome to the virtual site visit</p>
         </section>
         <VideoScroll videoSrc={animatedVideo} srcMap={miniMap} />

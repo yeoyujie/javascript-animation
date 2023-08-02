@@ -1,4 +1,4 @@
-import { baseDefaultStyle } from "../../../utils/baseDefaultStyle";
+import { baseDefaultStyle } from "../../../utils/stylePresets";
 
 const StaticPhotoWithText = ({ imageSrc, overlayText, textBoxOptions }) => {
   // This code defines a defaultStyle object that contains a set of default styles for an element.

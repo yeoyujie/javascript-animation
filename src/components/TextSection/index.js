@@ -1,4 +1,4 @@
-import { baseDefaultStyle } from "../../utils/baseDefaultStyle";
+import { baseDefaultStyle } from "../../utils/stylePresets";
 
 const TextSection = ({ text, backgroundImage }) => {
   const containerStyle = {
