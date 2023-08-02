@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { leftSideOverlayStyle, rightSideOverlayStyle, bottomLeftOverlayTextStyle, bottomRightOverlayTextStyle } from '../../../utils/stylePresets';
+import { getTextBoxStyle } from '../../../utils/getTextBoxStyle';
 import * as PANOLENS from 'panolens';
 
 const FixedRotatingPanoramicImage = ({
@@ -12,30 +12,12 @@ const FixedRotatingPanoramicImage = ({
     overlayText,
     textBoxOptions,
     viewerOptions,
-    overlayStyleType,
+    overlayStyleType="right",
     viewerContainerHeight = "600vh"
 }) => {
     const panoramaRef = useRef(null);
 
-    // Choose the overlay style based on the overlayStyleType prop
-    let textBoxStyle;
-
-    switch (overlayStyleType) {
-        case "left":
-            textBoxStyle = { ...leftSideOverlayStyle, ...textBoxOptions };
-            break;
-        case "right":
-            textBoxStyle = { ...rightSideOverlayStyle, ...textBoxOptions };
-            break;
-        case "bottomLeft":
-            textBoxStyle = { ...bottomLeftOverlayTextStyle, ...textBoxOptions };
-            break;
-        case "bottomRight":
-            textBoxStyle = { ...bottomRightOverlayTextStyle, ...textBoxOptions };
-            break;
-        default:
-            textBoxStyle = { ...textBoxOptions };
-    }
+    const textBoxStyle = getTextBoxStyle(overlayStyleType, textBoxOptions);
 
     useEffect(() => {
         const panorama = new PANOLENS.ImagePanorama(imageSrc);

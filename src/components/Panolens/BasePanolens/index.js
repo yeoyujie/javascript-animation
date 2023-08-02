@@ -1,7 +1,11 @@
 import { useEffect } from "react";
+import { getTextBoxStyle } from "../../../utils/getTextBoxStyle";
 import * as PANOLENS from "panolens";
 
-const BasePanolens = ({ imageSrc, overlayText, container }) => {
+const BasePanolens = ({ imageSrc, overlayText, overlayStyleType="bottomRight", textBoxOptions, container }) => {
+
+  const textBoxStyle = getTextBoxStyle(overlayStyleType, textBoxOptions);
+
   useEffect(() => {
     const panorama = new PANOLENS.ImagePanorama(imageSrc);
 
@@ -19,16 +23,7 @@ const BasePanolens = ({ imageSrc, overlayText, container }) => {
     <div className="viewer-container">
       <div className={`image-container ${container.slice(1)}`} />
       {overlayText && (
-        <div
-          style={{
-            position: "absolute",
-            bottom: 100,
-            right: 100,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            color: "white",
-            padding: "10px",
-          }}
-        >
+        <div style={textBoxStyle}>
           {overlayText}
         </div>
       )}

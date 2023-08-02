@@ -35,6 +35,7 @@ const CustomPanolens = ({
   overlayText,
   viewerOptions,
   textBoxOptions,
+  thresholdValue = 0.6,
   animateTextBox = true,
 }) => {
   const [inView, setInView] = useState(false);
@@ -59,7 +60,7 @@ const CustomPanolens = ({
     {
       root: null,
       rootMargin: "0px",
-      threshold: 0.7,
+      threshold: thresholdValue,
     }
   );
 
