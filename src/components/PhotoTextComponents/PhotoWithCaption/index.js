@@ -1,6 +1,6 @@
 import { getTextBoxStyle } from "../../../utils/getTextBoxStyle";
 
-const StaticPhotoWithSideCaptions = ({ imageSrc, caption, textBoxOptions, overlayStyleType="right" }) => {
+const PhotoWithCaption = ({ imageSrc, caption, textBoxOptions, overlayStyleType="right" }) => {
   
   const textBoxStyle = getTextBoxStyle(overlayStyleType, textBoxOptions);
 
@@ -12,5 +12,5 @@ const StaticPhotoWithSideCaptions = ({ imageSrc, caption, textBoxOptions, overla
   );
 };
 
-export default StaticPhotoWithSideCaptions;
+export default PhotoWithCaption;
 

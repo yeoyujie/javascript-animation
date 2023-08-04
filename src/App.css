@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@100;200;400;700&display=swap');
+
 /* ------------------------- Global Styles -------------------------------------*/
 
 /* Reset default styles */
@@ -8,7 +10,7 @@
 }
 
 body {
-  font-family: sans-serif, Arial, Helvetica;
+  font-family: 'Lato', sans-serif, Helvetica;
   overflow-x: hidden;
   color: white;
 }

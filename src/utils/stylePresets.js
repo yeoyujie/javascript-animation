@@ -3,7 +3,7 @@ export const baseDefaultStyle = {
   color: "white",
   fontSize: "1.2rem",
   textAlign: "left",
-  fontFamily: "sans-serif",
+  // fontFamily: "sans-serif",
 };
 
 const sideOverlayStyle = {

@@ -35,13 +35,14 @@ function App() {
   Nunc porttitor ut tortor id pulvinar. Praesent nec velit lobortis, eleifend magna ut, suscipit est.
   Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
   Curabitur vitae augue velit. Pellentesque ac tortor at ligula posuere euismod ut id elit. `;
+
   return (
     <div className="App">
       <ProgressBar />
       <WelcomeSection imageSrc={landingGif} />
       <FixedRotatingPanoramicImage
-        imageSrc={`${pic}?instance=8`}
-        container=".image-container-8"
+        imageSrc={`${pic}?instance=1`}
+        container=".image-container-1"
         scrollingFactor={0.002}
         overlayText={defaultText} />
       <TextSection
@@ -55,21 +56,21 @@ function App() {
       This should allow both instances of the `BasePanolens` component to load and display the image correctly.
       */}
       <BasePanolens
-        imageSrc={`${pic}?instance=1`}
-        container=".image-container-1"
+        imageSrc={`${pic}?instance=2`}
+        container=".image-container-2"
         overlayText={defaultText}
       />
       <BasePanolens
         imageSrc={`${pic2}?`}
-        container=".image-container-2"
+        container=".image-container-3"
         overlayText={defaultText}
         overlayStyleType='left'
       />
       <CustomPanolens
-        imageSrc={`${pic}?instance=2`}
+        imageSrc={`${pic}?instance=4`}
         overlaySrc={googleImg}
         overlayText={defaultText}
-        container=".image-container-3"
+        container=".image-container-4"
         viewerOptions={{
           autoRotate: true,
           cameraFov: 120,
@@ -94,12 +95,11 @@ function App() {
           textAlign: "center"
         }}
       />
-
       <PhotoWithCaption imageSrc={mastHeadImg} caption={defaultText} overlayStyleType='bottomRight' />
       <PhotoWithCaption imageSrc={smartCityImg} caption={defaultText} />
       <ScrollRotatingPanoramicImage
-        imageSrc={`${pic}?instance=4`}
-        container=".image-container-4"
+        imageSrc={`${pic}?instance=5`}
+        container=".image-container-5"
         overlayText={defaultText}
         overlayStyleType="bottomRight"
         viewerOptions={{ controlBar: true }} />

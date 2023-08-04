@@ -5,7 +5,7 @@ const TextSection = ({ text, backgroundImage }) => {
     ...baseDefaultStyle,
     padding: "10vh 1rem",
     minHeight: "85vh",
-    backgroundColor: "black",
+    backgroundColor: "white",
     backgroundImage: backgroundImage ? `url(${backgroundImage})` : null,
     backgroundSize: "cover",
     textAlign: "center",
