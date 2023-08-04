@@ -47,7 +47,7 @@ function App() {
       <TextSection
         text={defaultText}
         backgroundImage={singaporeImg}
-        
+
       />
       {/* 
       We're appending a unique `instance` query parameter to the `imageSrc` prop for each instance of the `BasePanolens` component. 
@@ -62,7 +62,7 @@ function App() {
       <BasePanolens
         imageSrc={`${pic2}?`}
         container=".image-container-2"
-        overlayText={defaultText} 
+        overlayText={defaultText}
         overlayStyleType='left'
       />
       <CustomPanolens
@@ -95,7 +95,7 @@ function App() {
         }}
       />
 
-      <PhotoWithCaption imageSrc={mastHeadImg} caption={defaultText} overlayStyleType='bottomRight'/>
+      <PhotoWithCaption imageSrc={mastHeadImg} caption={defaultText} overlayStyleType='bottomRight' />
       <PhotoWithCaption imageSrc={smartCityImg} caption={defaultText} />
       <ScrollRotatingPanoramicImage
         imageSrc={`${pic}?instance=4`}
